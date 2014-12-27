@@ -25,7 +25,8 @@
     <h2>Пример синтаксической подсветки языка 1С:Предприятия 8</h2>
 
 <pre class="brush: lang1c">
-&НаКлиенте
+
+&amp;НаКлиенте
 Процедура ОбработкаВызова(Данные = Неопределено)
     Результат = Новый Структура;
 
@@ -44,7 +45,7 @@
 	ОповеститьОВыборе(Результат);
 КонецПроцедуры
 
-&AtServerNoContext
+&amp;AtServerNoContext
 function getStatus()
     
     if SessionParameters.IsTesting then
