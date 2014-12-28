@@ -12,65 +12,67 @@
 
 /* 1C:Enterprise IDE default coloring */
 
-    /* base */
-    .syntaxhighlighter .lang1c {
-        background-color: white !important;
-        font-weight: normal !important;
-    }
+	/* base */
+	.syntaxhighlighter .lang1c {
+		background-color: white !important;
+		font-weight: normal !important;
+	}
 
-    /* Confluence theme fixup */
-    .syntaxhighlighter.lang1c .code , .syntaxhighlighter.lang1c .line {
-        background-color: white !important;
-        font-weight: normal !important;
-    }
-    .syntaxhighlighter.lang1c .codeHeader, .syntaxhighlighter.lang1c .codeContent, .syntaxhighlighter.lang1c .gutter {
-        background-color: #f5f5f5 !important;
-    }
-    .syntaxhighlighter.lang1c .gutter {
-        color: #707070 !important;
-    }
+	/* Confluence theme fixup */
+	.syntaxhighlighter.lang1c .code, .syntaxhighlighter.lang1c .line {
+		background-color: white !important;
+		font-weight: normal !important;
+	}
+	.syntaxhighlighter.lang1c .codeHeader, .syntaxhighlighter.lang1c .codeContent, .syntaxhighlighter.lang1c .gutter {
+		background-color: #f5f5f5 !important;
+	}
+	.syntaxhighlighter.lang1c .gutter {
+		color: #707070 !important;
+	}
 
-    /* keywords */
-    .syntaxhighlighter .lang1c.keyword  {
-        color: #ff0000 !important;
-    }
+	/* keywords */
+	.syntaxhighlighter .lang1c.keyword {
+		color: #ff0000 !important;
+	}
 
-    /* number constants */
-    .syntaxhighlighter .lang1c.color2 {
-        color: #000000 !important;
-    }
+	/* number constants */
+	.syntaxhighlighter .lang1c.color2 {
+		color: #000000 !important;
+	}
 
-    /* strings constants */
-    .syntaxhighlighter .lang1c.string {
-        color: #000000 !important;
-    }
+	/* strings constants */
+	.syntaxhighlighter .lang1c.string {
+		color: #000000 !important;
+	}
 
-    /* date constants */
-    .syntaxhighlighter .lang1c.color1 {
-        color: #000000 !important;
-    }
+	/* date constants */
+	.syntaxhighlighter .lang1c.color1 {
+		color: #000000 !important;
+	}
 
-    /* identifiers */
-    .syntaxhighlighter .lang1c.variable {
-        color: #0000ff !important;
-    }
+	/* identifiers */
+	.syntaxhighlighter .lang1c.variable {
+		color: #0000ff !important;
+	}
 
-    /* operators */
-    .syntaxhighlighter .lang1c.color3 {
-        color: #ff0000 !important;
-    }
+	/* operators */
+	.syntaxhighlighter .lang1c.color3 {
+		color: #ff0000 !important;
+	}
 
-    /* comments */
-    .syntaxhighlighter .lang1c.comments {
-        color: #008000 !important;
-    }
+	/* comments */
+	.syntaxhighlighter .lang1c.comments {
+		color: #008000 !important;
+	}
 
-    /* preprocessor */
-    .syntaxhighlighter .lang1c.preprocessor {
-        color: #963200 !important;
-    }
+	/* preprocessor */
+	.syntaxhighlighter .lang1c.preprocessor {
+		color: #963200 !important;
+	}
 
-    /* others */
-    .syntaxhighlighter .lang1c.plain {
-        color: #000000 !important;
-    }
+	/* others */
+	.syntaxhighlighter .lang1c.plain {
+		color: #000000 !important;
+	}
+
+/* end 1C:Enterprise IDE default coloring */
