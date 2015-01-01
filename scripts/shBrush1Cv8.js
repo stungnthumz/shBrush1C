@@ -103,7 +103,7 @@
 			{ regex: lib.singleLineCComments, css: 'comments' },    	// Comments
 
 			{ regex: /"([^"]*)"/gm,                      css: 'string' },	// Singleline and multiline string
-			{ regex: lib.singleQuotedString,             css: 'color1' },	// Date constants
+			{ regex: /('[^'$\n]*['$\n])/gm,              css: 'color1' },	// Date constants
 			{ regex: /((?:[0-9]+?\.[0-9]+)|([0-9]+))/gm, css: 'color2' },	// Number constants
 
 			{ regex: new RegExp(getKeywords(keywords), 'igm'),   css: 'keyword' },	// Keywords
