@@ -2,8 +2,8 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>1C SyntaxHighliter brush</title>
-
 	<script type="text/javascript" src="http://alexgorbatchev.com/pub/sh/current/scripts/shCore.js"></script>
+
 	<link type="text/css" rel="stylesheet" href="http://alexgorbatchev.com/pub/sh/current/styles/shCoreDefault.css" />
 
 	<script type="text/javascript" src="scripts/shBrush1Cv8.js"></script>
@@ -25,11 +25,11 @@
 
 <pre class="brush: lang1c">
 
-&amp;НаКлиенте
+&НаКлиенте
 Процедура ОбработкаВызова(Данные = Неопределено)
 
 	Результат = Новый Структура;
-	Результат.Вставить("Отказ", Данные = Неопределено);
+	Результат.Вставить("Статус", Данные <> Неопределено);
 
 #Если ВебКлиент Тогда
 	Результат.Вставить("ДатаСоздания", '20140101');
@@ -44,7 +44,7 @@
 	ОповеститьОВыборе(Результат);
 КонецПроцедуры
 
-&amp;AtServerNoContext
+&AtServerNoContext
 function getStatus()
 
 	if SessionParameters.IsTesting then

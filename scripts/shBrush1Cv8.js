@@ -14,10 +14,10 @@
 	// Get master highlighter
 	//
 	var sh = null;
-	if (typeof (SyntaxHighlighter) != 'undefined') {
+	if (typeof(SyntaxHighlighter) != 'undefined') {
 		sh = SyntaxHighlighter;
 
-	} else if (typeof (require) != 'undefined') {
+	} else if (typeof(require) != 'undefined') {
 		sh = require('shCore').SyntaxHighlighter;
 
 	};
@@ -33,7 +33,7 @@
 		 * \b don't work with unicode, using this regexp constructor instead of this.getKeywords
 		 *
 		 * @param  {String} wordList    Space separated keywords.
-		 * @return {String}             Returns regular expression string.
+		 * @return {String}             Regular expression string.
 		 */
 		var getKeywords = function(wordList) {
 			var excludeChars = '[^a-zA-Z' + cyrillicChars + ']';
@@ -47,12 +47,11 @@
 		 * Regexp for operators. Special char are fixed
 		 *
 		 * @param  {String} operatorList    Space separated operators.
-		 * @return {String} Regular         expression string.
+		 * @return {String} Regular         Regular expression string.
 		 */
 		var getOperators = function(operatorList) {
 
 			var operators = operatorList.replace(/[\\\^\$\*\+\?\.\(\)\{\}\[\]\:\=\!\|\,\-]/gm, '\\$&').replace(/\s+/gmi, '|');
-
 			return '(' + operators + ')';
 		};
 
@@ -94,12 +93,12 @@
 		             + ' \u0418 \u0418\u043B\u0438 \u041D\u0435'
 		;
 
-		var operators = '+ - * / % = ? . , ( ) [ ] ;';
+		var operators = '+ - * / % = ? . , ( ) [ ] ; &lt; &gt;';
 
 		var lib = sh.regexLib;
 
 		this.regexList = [
-			{ regex: /^\s*((?:#|&).*)$/gm,    css: 'preprocessor' },	// Preprocessor and compile options
+			{ regex: /^\s*((?:#|&).*)$/gm,    css: 'preprocessor' },	// Preprocessor and compiler options
 			{ regex: lib.singleLineCComments, css: 'comments' },    	// Comments
 
 			{ regex: /"([^"]*)"/gm,                      css: 'string' },	// Singleline and multiline string
@@ -125,4 +124,5 @@
 	if (typeof (exports) != 'undefined') {
 		exports.Brush = brush;
 	};
+
 })();
