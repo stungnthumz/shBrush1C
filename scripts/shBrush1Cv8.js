@@ -11,7 +11,7 @@
  */
 ;(function() {
 
-	// Get master highlighter
+	// Master highlighter
 	//
 	var sh = null;
 	if (typeof(SyntaxHighlighter) != 'undefined') {
@@ -22,44 +22,64 @@
 
 	};
 
-	// Main brush
-	//
-	var brush = function() {
+	/**
+		* Adds brush to highlighter
+		*
+		* @param {Object} brush      Brush.
+		* @param {Array}  aliases    String array of brush names (aliases).
+		*/
+	var registerBrush = function(brush, aliases) {
+		brush.prototype = new sh.Highlighter();
 
+		brush.aliases = aliases;
+		for (var key in aliases) {
+			sh.brushes[aliases[key]] = brush;
+		}
+
+		if (typeof(exports) != 'undefined') {
+			exports.Brush = brush;
+		};
+	}
+
+	// Brush for internal language
+	//
+	var brush1CLang = function () {
+
+		// Helpers
+		//
 		var cyrillicChars = '\u0430-\u044F\u0410-\u042F\u0451\u0401';
 
 		/**
-		 * Converts space separated list of keywords into a regexp string.
-		 * \b don't work with unicode, using this regexp constructor instead of this.getKeywords
-		 *
-		 * @param  {String} wordList    Space separated keywords.
-		 * @return {String}             Regular expression string.
-		 */
+			* Converts space separated list of keywords into a regexp string.
+			* \b don't work with unicode, using this regexp constructor instead of this.getKeywords
+			*
+			* @param  {String} wordList    Space separated keywords.
+			* @return {String}             Regular expression string.
+			*/
 		var getKeywords = function(wordList) {
 			var excludeChars = '[^a-zA-Z' + cyrillicChars + ']';
-
-			var keywords = wordList.replace(/\s+/gmi, '|');
+			var keywords     = wordList.replace(/\s+/gmi, '|');
 
 			return '(?:^|' + excludeChars + ')(' + keywords + ')(?=$|' + excludeChars + ')';
 		};
 
 		/**
-		 * Regexp for operators. Special char are fixed
-		 *
-		 * @param  {String} operatorList    Space separated operators.
-		 * @return {String} Regular         Regular expression string.
-		 */
+			* Regexp for operators. Special char are fixed
+			*
+			* @param  {String} operatorList    Space separated operators.
+			* @return {String}                 Regular expression string.
+			*/
 		var getOperators = function(operatorList) {
-
 			var operators = operatorList.replace(/[\\\^\$\*\+\?\.\(\)\{\}\[\]\:\=\!\|\,\-]/gm, '\\$&').replace(/\s+/gmi, '|');
+
 			return '(' + operators + ')';
 		};
 
 		/**
-		 * Regexp for identifier.
-		 *
-		 * @return {String} Regular expression string.
-		 */
+			* Regexp for identifier.
+			*
+			* @return {String} Regular expression string.
+			*/
 		var getIDs = function() {
 			var charset = 'a-zA-Z' + cyrillicChars;
 
@@ -95,34 +115,24 @@
 
 		var operators = '+ - * / % = ? . , ( ) [ ] ; &lt; &gt;';
 
-		var lib = sh.regexLib;
-
 		this.regexList = [
-			{ regex: /^\s*((?:#|&).*)$/gm,    css: 'preprocessor' },	// Preprocessor and compiler options
-			{ regex: lib.singleLineCComments, css: 'comments' },    	// Comments
+			{ regex: /^\s*((?:#|&).*)$/gm,            css: 'preprocessor' },      	// Preprocessor and compiler options
+			{ regex: sh.regexLib.singleLineCComments, css: 'comments' },          	// Comments
 
-			{ regex: /"([^"]*)"/gm,                      css: 'string' },	// Singleline and multiline string
-			{ regex: /('[^'$\n]*['$\n])/gm,              css: 'color1' },	// Date constants
-			{ regex: /((?:[0-9]+?\.[0-9]+)|([0-9]+))/gm, css: 'color2' },	// Number constants
+			{ regex: /"([^"]*)"/gm,                      css: 'string' },         	// Singleline and multiline string
+			{ regex: /('[^'$\n]*['$\n])/gm,              css: 'color1' },         	// Date constants
+			{ regex: /((?:[0-9]+?\.[0-9]+)|([0-9]+))/gm, css: 'color2' },         	// Number constants
 
-			{ regex: new RegExp(getKeywords(keywords), 'igm'),   css: 'keyword' },	// Keywords
-			{ regex: new RegExp(getOperators(operators), 'igm'), css: 'color3' }, 	// Operators
-			{ regex: new RegExp(getIDs(), 'igm'),                css: 'variable' }	// Variable
+			{ regex: new RegExp(getKeywords(keywords), 'igm'),   css: 'keyword'  },	// Keywords
+			{ regex: new RegExp(getOperators(operators), 'igm'), css: 'color3'   },	// Operators
+			{ regex: new RegExp(getIDs(), 'igm'),                css: 'variable' } 	// Variable
 		];
 
 	};
 
-	brush.prototype = new sh.Highlighter();
-
 	// Confluence 5.x Code Macro incorrectly handle mixedcase aliases, using lowcase only.
 	// Also alias name must match CSS classname.
 	//
-	brush.aliases = ['lang1c'];
-
-	sh.brushes[brush.aliases[0]] = brush;
-
-	if (typeof (exports) != 'undefined') {
-		exports.Brush = brush;
-	};
+	registerBrush(brush1CLang, ['lang1c']);
 
 })();

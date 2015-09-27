@@ -1,0 +1,85 @@
+﻿/**
+ * 1C:Enterprise v8 language theme for SyntaxHighliter 3, Atlassian Confluence compatible
+ * by Dmitrii Bulgakov (stungnthumz@dwemereth.net)
+ *
+ * SyntaxHighlighter:
+ *     Сopyright (C) 2004-2011 Alex Gorbatchev
+ *     http://alexgorbatchev.com/SyntaxHighlighter
+ *
+ * @license
+ *     MIT
+ */
+
+/* 1C:Enterprise default coloring base */
+
+	/* base */
+	.syntaxhighlighter .lang1cq {
+		background-color: white !important;
+		font-weight: normal !important;
+	}
+
+	/* Confluence theme fixup */
+	.syntaxhighlighter.lang1cq .code, .syntaxhighlighter.lang1cq .line {
+		background-color: white !important;
+		font-weight: normal !important;
+	}
+	.syntaxhighlighter.lang1cq .codeHeader, .syntaxhighlighter.lang1cq .codeContent, .syntaxhighlighter.lang1cq .gutter {
+		background-color: #f5f5f5 !important;
+	}
+	.syntaxhighlighter.lang1cq .gutter {
+		color: #707070 !important;
+	}
+
+/* 1C:Enterprise query default coloring */
+
+	/* comments */
+	.syntaxhighlighter .lang1cq.comments {
+		color: #008000 !important;
+	}
+
+	/* strings constants */
+	.syntaxhighlighter .lang1cq.string {
+		color: #ff0000 !important;
+	}
+
+	/* number constants */
+	.syntaxhighlighter .lang1cq.color2 {
+		color: #ff00ff !important;
+	}
+
+	/* parameters */
+	.syntaxhighlighter .lang1cq.value {
+		color: #008080 !important;
+	}
+
+	/* functions */
+	.syntaxhighlighter .lang1cq.functions {
+		color: #800000 !important;
+	}
+
+	/* keywords */
+	.syntaxhighlighter .lang1cq.keyword {
+		color: #0000ff !important;
+	}
+
+	/* tokens */
+	.syntaxhighlighter .lang1cq.constants {
+		color: #800000 !important;
+	}
+
+	/* names and synonyms */
+	.syntaxhighlighter .lang1cq.variable {
+		color: #000000 !important;
+	}
+
+	/* operators */
+	.syntaxhighlighter .lang1cq.color3 {
+		color: #0000ff !important;
+	}
+
+	/* others */
+	.syntaxhighlighter .lang1cq.plain {
+		color: #ff0000 !important;
+	}
+
+/* end 1C:Enterprise coloring scheme */

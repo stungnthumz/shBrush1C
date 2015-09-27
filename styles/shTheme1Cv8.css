@@ -10,7 +10,7 @@
  *     MIT
  */
 
-/* 1C:Enterprise IDE default coloring */
+/* 1C:Enterprise default coloring base */
 
 	/* base */
 	.syntaxhighlighter .lang1c {
@@ -30,14 +30,16 @@
 		color: #707070 !important;
 	}
 
-	/* keywords */
-	.syntaxhighlighter .lang1c.keyword {
-		color: #ff0000 !important;
+/* 1C:Enterprise IDE default coloring */
+
+	/* preprocessor */
+	.syntaxhighlighter .lang1c.preprocessor {
+		color: #963200 !important;
 	}
 
-	/* number constants */
-	.syntaxhighlighter .lang1c.color2 {
-		color: #000000 !important;
+	/* comments */
+	.syntaxhighlighter .lang1c.comments {
+		color: #008000 !important;
 	}
 
 	/* strings constants */
@@ -50,9 +52,14 @@
 		color: #000000 !important;
 	}
 
-	/* identifiers */
-	.syntaxhighlighter .lang1c.variable {
-		color: #0000ff !important;
+	/* number constants */
+	.syntaxhighlighter .lang1c.color2 {
+		color: #000000 !important;
+	}
+
+	/* keywords */
+	.syntaxhighlighter .lang1c.keyword {
+		color: #ff0000 !important;
 	}
 
 	/* operators */
@@ -60,14 +67,9 @@
 		color: #ff0000 !important;
 	}
 
-	/* comments */
-	.syntaxhighlighter .lang1c.comments {
-		color: #008000 !important;
-	}
-
-	/* preprocessor */
-	.syntaxhighlighter .lang1c.preprocessor {
-		color: #963200 !important;
+	/* identifiers */
+	.syntaxhighlighter .lang1c.variable {
+		color: #0000ff !important;
 	}
 
 	/* others */
@@ -75,4 +77,4 @@
 		color: #000000 !important;
 	}
 
-/* end 1C:Enterprise IDE default coloring */
+/* end 1C:Enterprise coloring scheme */

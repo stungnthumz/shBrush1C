@@ -9,6 +9,9 @@
 	<script type="text/javascript" src="scripts/shBrush1Cv8.js"></script>
 	<link type="text/css" rel="stylesheet" href="styles/shTheme1Cv8.css" />
 
+	<script type="text/javascript" src="scripts/shBrush1Cv8q.js"></script>
+	<link type="text/css" rel="stylesheet" href="styles/shTheme1Cv8q.css" />
+
 	<script type="text/javascript">SyntaxHighlighter.all();</script>
 
 	<style>
@@ -17,14 +20,26 @@
 			font: normal 1em Helvetica, Geneva, Arial, sans-serif;
 			margin: 4em;
 		}
+		table.demo {
+			width: 100%;
+		}
+		table.demo td {
+			vertical-align: top;
+		}
 	</style>
 </head>
 <body>
+	<h2>Примеры синтаксической подсветки</h2>
 
-	<h2>Пример синтаксической подсветки языка 1С:Предприятия 8</h2>
+	<table class="demo">
+		<tr>
+			<td><h3>Языка 1С:Предприятия 8</h3></td>
+			<td><h3>Языка запросов</h3></td>
+		</tr>
+		<tr>
+			<td>
 
 <pre class="brush: lang1c">
-
 &НаКлиенте
 Процедура ОбработкаВызова(Данные = Неопределено)
 
@@ -55,11 +70,34 @@ function getStatus()
 
 	else
 		result = "ERROR";
+
 	endif;
 
 	return result;
 endfunction
 </pre>
+			</td>
+			<td>
+
+<pre class="brush: lang1cq">
+SELECT TOP 100
+	TRUE                AS Flag,
+	Контрагенты.Ссылка  AS Ссылка,
+	"!!!",
+	SUM(Филиалы.Состав) AS Состав
+ИЗ
+	Справочник.Контрагенты КАК Контрагенты
+ЛЕВОЕ СОЕДИНЕНИЕ
+	РегистрСведений.СоставФилиалов КАК Филиалы
+ПО
+	Филиалы.Контрагент = Контрагенты.Ссылка
+ГДЕ
+	Контрагенты.ТипТорговойСети = ЗНАЧЕНИЕ(Перечисление.ТипыТорговойСети.Основная)
+</pre>
+
+			</td>
+		</tr>
+	</table>
 
 </body>
 </html>
